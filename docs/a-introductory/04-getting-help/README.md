@@ -187,57 +187,155 @@ Find all the info you need in the man-pages. Make sure to comment the commands y
 
 Mark challenges using a ✅ once they are finished.
 
-### ❌ The free command
+### ✅ The free command
 
 *Describe in your own words what the `free` command does. Give an example and a partial output.*
 
-### ❌ The id command
+Its shows the amount of free memory space, The total amount of memory and the maximum amount of memory.
+
+```bash
+              total        used        free      shared  buff/cache   available
+Mem:           15Gi       6.8Gi       8.9Gi        17Mi       223Mi       9.0Gi
+Swap:          48Gi        35Mi        47Gi
+```
+
+### ✅ The id command
 
 *Describe in your own words what the `id` command does. Give an example and a partial output.*
 
-### ❌ The tree command
+It prints the user and group data for the specified USER.
+
+```bash
+uid=1000(matias) gid=1000(matias) groups=1000(matias),4(adm),20(dialout),24(cdrom),25(floppy),27(sudo),29(audio),30(dip),44(video),46(plugdev),117(netdev)
+```
+
+### ✅ The tree command
 
 *Describe in your own words what the `tree` command does. How do you list all subdirectories too? How can you only include directories? If the `tree` command is not available on your system you can install it using `sudo apt install tree`*
 
-### ❌ The which command
+Tree is a listing program that produces a list of all files, which is colorized.
+
+```bash
+tree -a
+.
+├── .bash_history
+├── .bash_logout
+├── .bashrc
+├── .landscape
+│   └── sysinfo.log
+├── .lesshst
+├── .motd_shown
+├── .profile
+└── .sudo_as_admin_successful
+```
+
+### ✅ The which command
 
 *Describe in your own words what the `which` command does. What is the result for `pwd` ?*
+its shows where the command is located.
 
-### ❌ The file command
+```bash
+/usr/bin/pwd
+```
+
+### ✅ The file command
 
 *Describe in your own words what the `file` command does. What is the result for `~/.bashrc` ?*
 
-### ❌ The type command
+  File determine file type.
+
+```bash
+/home/matias/.bashrc: ASCII text
+```
+
+### ✅ The type command
 
 *Describe in your own words what the `type` command does. What is the result for `ls` and what is the result for `g++` ?*
 
-### ❌ Counting lines and words
+Display information about command type.
+
+```bash
+ls is aliased to `ls --color=auto'
+
+g++ is /usr/bin/g++
+```
+
+### ✅ Counting lines and words
 
 *What command can be used to count lines and words in text? Give an example and explain the output.*
 
-### ❌ The wget command
+```bash
+wc /proc/cpuinfo 
+104 712 3768 /proc/cpuinfo
+```
+
+### ✅ The wget command
 
 *How can you download a file from the Internet using the command line?. Find a file online to use it on and demonstrate its usage.*
 
-### ❌ The dmesg command
+```bash
+Wget is a free utility to download of files from the web. t supports HTTP, HTTPS, and FTP protocols
+wget github.com
+--2021-09-30 13:14:27--  http://github.com/
+Resolving github.com (github.com)... 140.82.121.3
+Connecting to github.com (github.com)|140.82.121.3|:80... connected.
+HTTP request sent, awaiting response... 301 Moved Permanently
+Location: https://github.com/ [following]
+--2021-09-30 13:14:28--  https://github.com/
+Connecting to github.com (github.com)|140.82.121.3|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘index.html’
+
+index.html                             [ <=>                                                             ] 233.66K  --.-KB/s    in 0.1s
+
+2021-09-30 13:14:28 (2.24 MB/s) - ‘index.html’ saved [239269]
+```
+
+### ✅ The dmesg command
 
 *Describe in your own words what the `dmesg` command does. Give an example and a partial output.*
 
-### ❌ Checksums
+dmesg is used to examine or control the kernel ring buffer.
+
+```bash
+[    0.011140]  Microsoft 4.4.0-19041.1237-Microsoft 4.4.35
+[    0.150622] <3>init: (1) ERROR: ConfigInitializeCommon:570: Failed to mount /usr/lib/wsl/drive
+[    0.150629] : 19
+[    0.150959] <3>init: (1) ERROR: ConfigInitializeCommon:570: Failed to mount /usr/lib/wsl/lib
+[    0.150964] 19
+```
+
+### ✅ Checksums
 
 *Go to the website of Raspberry Pi - [https://www.raspberrypi.org/software/operating-systems](https://www.raspberrypi.org/software/operating-systems) and download the Raspberry Pi OS image using the `wget` command line tool. Now check if the SHA-256 checksum complies with the one being advertised on the website.*
 
 *What tool did you use to calculate the checksum? Demonstrate its usage.*
 
+```bash
+cksum ./2021-05-07-raspios-buster-armhf-lite.zip
+1779386885 465662909 ./2021-05-07-raspios-buster-armhf-lite.zip
+```
+
 *What is the use of this hash?*
 
-### ❌ The printenv command
+```bash
+shasum ./2021-05-07-raspios-buster-armhf-lite.zip
+5e402402984b4f9216b2a3eff1f830d169afd4ea  ./2021-05-07-raspios-buster-armhf-lite.zip
+```
+
+### ✅ The printenv command
 
 *Describe in your own words what the `printenv` command does.*
 
-### ❌ IP Address
+It prints the values of the specified environment VARIABLE(s)
+
+### ✅ IP Address
 
 *Find the IP address of your WiFi interface. What command did you use?*
+
+If you want to find your ip address: ip adrr
+wifi 0.
 
 ### ❌ IP of Sivir Server
 
