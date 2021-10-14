@@ -340,3 +340,6 @@ wifi 0.
 ### ❌ IP of Sivir Server
 
 *What is the IP address of the internal server `sivir.devbit.be`? Make sure you are connected to the `Devbit` network.*
+
+dig +short sivir.devbit.be
+ip address is 172.16.10.5
