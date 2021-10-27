@@ -377,9 +377,19 @@ Mark challenges using a ✅ once they are finished.
 
 *Try to login to the `daemon` system user account. Use `sudo su daemon`. What does it display as a message ? What application is outputting this message ? Run that application and prove it.*
 
+```bash
+
+```
+
 ### ❌ Creating group with id
 
 *Create a group called `hackers` with the specific group id `1337`. Now create two users (students from the class) and add them both the group.*
+
+```bash
+sudo addgroup hackers --gid 1337 
+
+suda adduser 
+```
 
 ### ❌ Difference false and nologin
 

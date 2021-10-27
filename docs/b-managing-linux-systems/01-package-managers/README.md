@@ -275,17 +275,33 @@ Mark challenges using a ✅ once they are finished.
 
 *Run it once it's installed. What does it do ?*
 
+```bash
+cowsay grasss
+ ________
+< grasss >
+ --------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+```
+
 ### ❌ Nmap
 
 *Install the `nmap` package using `apt`.*
 
 *Port scan the server `sivir.devbit.be`. Make sure you are connected to the `Devbit` network. What services are running on this machine?*
 
-### ❌ NodeJS
+### ✅ NodeJS
 
 *Install `snap` using `apt`. Next use `snap` to install `nodejs`.*
 
 *Now launch node and tryout the following little code snippet:*
+
+sudo snap install node
+Interacting with snapd is not yet supported on Windows Subsystem for Linux.
+This command has been left available for documentation purposes only.
 
 ```js
 console.log("Hello World from JavaScript");
@@ -295,6 +311,11 @@ console.log("Hello World from JavaScript");
 
 *Install the `dhcpdump` and try to capture some DHCP traffic in the network. Work together with another student and try to capture the DHCP request of his/her laptop. Find out what the MAC Address is and check it using the `ip` or `ipconfig` tool.*
 
-### ❌ MQTT
+### ✅ MQTT
 
 *Find a command line tool that allows you to publish messages to an MQTT broker. Use it to send your name to the topic `linux/students`. Use the broker `mqtt.devbit.be`.*
+
+```bash
+sudo apt install mosquitto-clients
+mosquitto_pub --topic linux/students -h mqtt.devbit.be -m "matias vereecke"
+```
