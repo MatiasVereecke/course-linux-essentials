@@ -337,7 +337,7 @@ It prints the values of the specified environment VARIABLE(s)
 If you want to find your ip address: ip adrr
 wifi 0.
 
-### ❌ IP of Sivir Server
+### ✅ IP of Sivir Server
 
 *What is the IP address of the internal server `sivir.devbit.be`? Make sure you are connected to the `Devbit` network.*
 

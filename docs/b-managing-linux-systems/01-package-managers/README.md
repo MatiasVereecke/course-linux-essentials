@@ -317,5 +317,5 @@ console.log("Hello World from JavaScript");
 
 ```bash
 sudo apt install mosquitto-clients
-mosquitto_pub --topic linux/students -h mqtt.devbit.be -m "matias vereecke"
+mosquitto_pub --topic linux/students -h mqtt.devbit.be -m "Matias Vereecke"
 ```

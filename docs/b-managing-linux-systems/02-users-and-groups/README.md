@@ -373,42 +373,73 @@ Try to solve the challenges without using google. Better to use the man-pages to
 
 Mark challenges using a ✅ once they are finished.
 
-### ❌ System user accounts
+### ✅ System user accounts
 
 *Try to login to the `daemon` system user account. Use `sudo su daemon`. What does it display as a message ? What application is outputting this message ? Run that application and prove it.*
 
 ```bash
+sudo su daemon
+This account is currently not available.
 
+matias@DESKTOP-GI6F63L:~$ nologin
+This account is currently not available.
 ```
 
-### ❌ Creating group with id
+### ✅ Creating group with id
 
 *Create a group called `hackers` with the specific group id `1337`. Now create two users (students from the class) and add them both the group.*
 
 ```bash
 sudo addgroup hackers --gid 1337 
 
-suda adduser 
+sudo adduser jarno
+sudo adduser jarno hackers
+
+sudo adduser lukas
+sudo adduser lukas hackers
 ```
 
-### ❌ Difference false and nologin
+### ✅ Difference false and nologin
 
 *Some user entries are showing `/bin/false` as the shell command. Do some research and explain what the difference is with `/usr/sbin/nologin`.*
+
+- False will not output a message that the user does not have shell access
+- Nologin will print a message to the terminal e.g. This account is currently not available.
 
 ### ❌ The auth.log file 
 
 *What does the file `/log/var/auth.log` track? Provide an example of a command that shows entries being added to the log after you executed the command. Include the entry here that was added to the file.*
 
-### ❌ Locking out Steve
+### ✅ Locking out Steve
 
 *Create a new user steve and set a password for the user. Login to the `steve` account using `su` to make sure it works.*
 
 *Now lock the user account and make sure there is no way anyone can login as `steve`, not even `root`*
 
-### ❌ Zsh Shell
+```bash
+sudo adduser steve
+
+sudo passwd -l steve
+sudo usermod --expiredate 1 steve
+
+matias@DESKTOP-GI6F63L:~$ sudo su steve
+Your account has expired; please contact your system administrator
+su: Authentication failure
+```
+### ✅ Zsh Shell
 
 *Install the zsh shell on your system. Now change your own shell to `zsh`. Make sure to do this in such a way that a new session will also use `zsh`.*
+
+```bash
+sudo apt install zsh
+sudo usermod --shell /bin/zsh matias
+```
 
 ### ❌ Semester Account
 
 *Create a new account for an exchange student called `maggie`. Make sure the account can only be used until 31st of January of the next year. Basically only for this semester*.
+
+```bash
+sudo adduser maggie
+sudo usermod --expiredate 2022-01-31 maggie
+```
