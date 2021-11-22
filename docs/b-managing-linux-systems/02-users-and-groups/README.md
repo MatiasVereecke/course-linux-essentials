@@ -435,7 +435,7 @@ sudo apt install zsh
 sudo usermod --shell /bin/zsh matias
 ```
 
-### ❌ Semester Account
+### ✅ Semester Account
 
 *Create a new account for an exchange student called `maggie`. Make sure the account can only be used until 31st of January of the next year. Basically only for this semester*.
 

@@ -269,7 +269,7 @@ Find all the info you need in the man-pages. Document the commands you used for 
 
 Mark challenges using a ✅ once they are finished.
 
-### ❌ Cowsay
+### ✅ Cowsay
 
 *Download the `.deb` package for `cowsay` and install it using `dpkg`. You can find the package at [https://packages.debian.org/sid/all/cowsay/download](https://packages.debian.org/sid/all/cowsay/download).*
 

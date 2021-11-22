@@ -258,7 +258,7 @@ Try to solve the challenges without using google. Better to use the man-pages to
 
 Mark challenges using a ✅ once they are finished.
 
-### ❌ Locate
+### ✅ Locate
 
 *Install the `locate` command and update the index database.*
 
@@ -268,15 +268,39 @@ Mark challenges using a ✅ once they are finished.
 * the configuration file `ssh_config`
 * `auth.log`
 
-### ❌ Python man-pages
+```bash
+locate ssh_config
+/usr/share/doc/sudo/examples/sudoers.dist
+
+locate ssh_config
+/etc/ssh/ssh_config
+/etc/ssh/ssh_config.d
+/mnt/c/Program Files/Git/etc/ssh/ssh_config
+/mnt/c/Users/matia/.vscode/extensions/ms-vscode-remote.remote-ssh-edit-0.66.1/syntaxes/ssh_config.tmLanguage.json
+/usr/share/man/man5/ssh_config.5.gz
+
+locate auth.log 
+cannot be found
+```
+
+### ✅ Python man-pages
 
 *Use the `whereis` tool to determine the location of the man-pages of `python`.*
 
-### ❌ Python man-pages
+```bash
+whereis -m python
+cannot be found
+```
+
+### ✅ Python man-pages
 
 *Use the `whereis` tool to determine the location of the `find` binary.*
+```bash
+whereis -b find
+find: /usr/bin/find /mnt/c/Windows/system32/find.exe /mnt/c/Program Files/Git/usr/bin/find.exe
+```
 
-### ❌ Which
+### ✅ Which
 
 *What is the location of the following commands for the current user:*
 
@@ -284,23 +308,58 @@ Mark challenges using a ✅ once they are finished.
 * `locate`
 * `fdisk`
 
+```bash
+which passwd
+/usr/bin/passwd
+
+which locate
+/usr/bin/locate
+
+which fdisk
+/usr/sbin/fdisk
+```
+
 *Why are the location of `passwd` and `fdisk` different? What is `fdisk` used for?*
+
+programs deemed essential for using the operating system. The distinction is usually that /sbin contains the more dangerous commands that are available to the system administrator
 
 ### Use find for the following challenges
 
 Make sure to redirect the `permission denied` errors to `/dev/null` for all searches unless specified otherwise.
 
-#### ❌ kernel.log
+
+#### ✅ kernel.log
 
 *Find the file `kernel.log`.*
+```bash
+find / -type f -name "kernel.log" 2>/dev/null
+cannot be found
+```
 
-#### ❌ .bashrc
+#### ✅ .bashrc
 
-*Find the files `.bashrc`.*
+*Find the files `*.bashrc`.*
+
+```bash
+  find / -type f -name ".bashrc" 2>/dev/null
+  /etc/skel/.bashrc
+  /home/barry/.bashrc
+  /home/jarno/.bashrc
+  /home/lukas/.bashrc
+  /home/maggie/.bashrc
+  /home/matias/.bashrc
+  /home/steve/.bashrc
+```
 
 #### ❌ System Configuration Files
 
 *Search for files that end with the extension `.conf` and contain a filename with the keyword `system` in the `/etc` directory.*
+```bash
+find /etc -type f -name ("*.conf" -and -name "system\n") 2>/dev/null
+cannot be found
+/etc/systemd/system.conf
+find /etc -type f -name "*system*.conf"
+```
 
 #### ❌ User Readable Files
 
