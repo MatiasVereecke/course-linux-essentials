@@ -646,32 +646,100 @@ The file is found at /var/log/auth.log
 
 /etc/apt/sources.list
 
-### ❌ Tmp Filesystem
+### ✅ Tmp Filesystem
 
 *Create a file called `hello` in `/tmp`. Restart your linux distro using `reboot`. Where is the file? What happened?*
 
-### ❌ Timestamps
+```bash
+matias@matias-VirtualBox:/tmp$ touch hello
+matias@matias-VirtualBox:/tmp$ ls
+config-err-GTasyZ
+hello
+ssh-F0ZGZEbPgNmo
+systemd-private-b25beadd51234ebe91d77e53dc56b4c5-colord.service-NStswh
+systemd-private-b25beadd51234ebe91d77e53dc56b4c5-ModemManager.service-IvNQHg
+systemd-private-b25beadd51234ebe91d77e53dc56b4c5-switcheroo-control.service-1Kjf6h
+systemd-private-b25beadd51234ebe91d77e53dc56b4c5-systemd-logind.service-45wx6f
+systemd-private-b25beadd51234ebe91d77e53dc56b4c5-systemd-resolved.service-Eqsxcg
+systemd-private-b25beadd51234ebe91d77e53dc56b4c5-systemd-timesyncd.service-QP05Jf
+systemd-private-b25beadd51234ebe91d77e53dc56b4c5-upower.service-gJefng
+Temp-e1e7321d-5be4-46d3-86f8-f617ce9fbcbb
+tracker-extract-files.1000
+tracker-extract-files.125
+
+----------------------------------------------------------------------
+
+matias@matias-VirtualBox:/tmp$ ls
+config-err-vUslCS
+ssh-HTiZ6Ghpy93R
+systemd-private-beefe2c49f314be680e6732a1a7cfd2a-colord.service-gTHzHh
+systemd-private-beefe2c49f314be680e6732a1a7cfd2a-geoclue.service-0Vypng
+systemd-private-beefe2c49f314be680e6732a1a7cfd2a-ModemManager.service-bb246i
+systemd-private-beefe2c49f314be680e6732a1a7cfd2a-switcheroo-control.service-OXK6Qf
+systemd-private-beefe2c49f314be680e6732a1a7cfd2a-systemd-hostnamed.service-xvlfYf
+systemd-private-beefe2c49f314be680e6732a1a7cfd2a-systemd-localed.service-cEMrfg
+systemd-private-beefe2c49f314be680e6732a1a7cfd2a-systemd-logind.service-1xPDeh
+systemd-private-beefe2c49f314be680e6732a1a7cfd2a-systemd-resolved.service-ra9o6e
+systemd-private-beefe2c49f314be680e6732a1a7cfd2a-systemd-timesyncd.service-iIMQ4g
+systemd-private-beefe2c49f314be680e6732a1a7cfd2a-upower.service-8SS3Hf
+tracker-extract-files.1000
+tracker-extract-files.125
+
+```
+
+### ✅ Timestamps
 
 *Create a file called `first-of-many` in your home directory. Use `nano` to add some content to the file. Now list the details of the file such as the size and when it was last modified.*
+```bash
+matias@matias-VirtualBox:~$ stat first-of-many 
+  File: first-of-many
+  Size: 65        	Blocks: 8          IO Block: 4096   regular file
+Device: 805h/2053d	Inode: 655495      Links: 1
+Access: (0664/-rw-rw-r--)  Uid: ( 1000/  matias)   Gid: ( 1000/  matias)
+Access: 2021-11-27 12:31:41.934204277 +0100
+Modify: 2021-11-27 12:32:19.820894193 +0100
+Change: 2021-11-27 12:32:19.820894193 +0100
+ Birth: -
 
-### ❌ No space for spaces
+```
+
+### ✅ No space for spaces
 
 *Try to create a file called `second try` (with the space included) using the command `touch second try` in your home directory. What happened? Why did this happen? How can you actually achieve creating a file with a space in its name?*
 
-### ❌ The root
+
+The command creates a second and a try file because the terminal sees a space as a special character that seperates arguments.
+
+A file with a space can be created using touch "second try"
+
+### ✅ The root
 
 *Try to create a directory `/backups` (under the root of the filesystem). Why is it failing?*
 
+The user does not have the needed permissions.
+
 *Now use `sudo` to create the directory. Try creating a file called `README.md` within this `/backups` directory. Can you do it? Why / Why not?*
 
-### ❌ Bash RC
+No the user does not have the permission to create a file in this directory. The user only has the permission to read the directory.
+
+### ✅ Bash RC
 
 *In your home directory you will find a file called `.bashrc`. Create a backup of that file called `.bashrc.bak`.*
 
-### ❌ Sym Linking
+
+```bash
+cp .bashrc .bashrc.bak
+```
+### ✅ Sym Linking
 
 *What does the tool `ln` allow you to do? Use it to create such a link in your home directory called `secrets` to the file `/etc/passwd`. Now use the `cat` tool to open the file `secrets`. What do you see? What happened?*
 
-### ❌ SD Card
+
+ln is used to create a link between files. When using the cat secrets command the contents of /etc/passwd are displayed. The two filenames now point to the same file.
+
+### ✅ SD Card
 
 *Plugin an SD Card or a USB stick into you computer. Where can we find the actual block device? Where is the filesystem mounted? What is the difference between these two?*
+
+
+The block device can be found in the dev directory. The filesystem is mounted in the media directory. As a block device the data is stored in data blocks, while in the filesystem the data is organized as files with a hierarchy.

@@ -406,9 +406,15 @@ sudo adduser lukas hackers
 - False will not output a message that the user does not have shell access
 - Nologin will print a message to the terminal e.g. This account is currently not available.
 
-### ❌ The auth.log file 
+### ✅ The auth.log file 
 
 *What does the file `/log/var/auth.log` track? Provide an example of a command that shows entries being added to the log after you executed the command. Include the entry here that was added to the file.*
+
+```bash
+ sudo su barry
+ Nov 27 12:08:08 matias-VirtualBox su: pam_unix(su:session): session opened for user barry by (uid=0)
+
+```
 
 ### ✅ Locking out Steve
 
