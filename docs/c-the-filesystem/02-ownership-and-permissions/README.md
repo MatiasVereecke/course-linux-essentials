@@ -379,6 +379,10 @@ Try to solve the challenges without using google. Better to use the man-pages to
 
 Mark challenges using a ✅ once they are finished.
 
-### ❌ Etcetera
+### ✅ Etcetera
 
 *Who is the owner of the `/etc` directory on the system? What are the permissions on this directory? Why can you list the content of this directory?*
+
+- The /etc directory is owned by the root user.
+- As a user not in the root group you have the execute permission.
+- The execute permission gives the user the permission to traverse a directory and acces metadata about its files.
