@@ -735,7 +735,7 @@ cp .bashrc .bashrc.bak
 *What does the tool `ln` allow you to do? Use it to create such a link in your home directory called `secrets` to the file `/etc/passwd`. Now use the `cat` tool to open the file `secrets`. What do you see? What happened?*
 
 
-ln is used to create a link between files. When using the cat secrets command the contents of /etc/passwd are displayed. The two filenames now point to the same file.
+ln is used to make a link between files. When using the cat tool, it shows the content of /etc/passwd. The files are pointing to the same file
 
 ### ✅ SD Card
 
