@@ -351,24 +351,91 @@ cannot be found
   /home/steve/.bashrc
 ```
 
-#### ❌ System Configuration Files
+#### ✅  System Configuration Files
 
 *Search for files that end with the extension `.conf` and contain a filename with the keyword `system` in the `/etc` directory.*
 ```bash
-find /etc -type f -name ("*.conf" -and -name "system\n") 2>/dev/null
-cannot be found
+find /etc -type f -name "*system*.conf" 2>/dev/null
 /etc/systemd/system.conf
-find /etc -type f -name "*system*.conf"
 ```
 
 #### ❌ User Readable Files
 
 *What option can we use on `find` to make sure the current user can read the file? Don't use the `-perm` option. There is a better option. Give a nice example.*
 
-#### ❌ Altered Log Files
+#### ✅ Altered Log Files
 
 *Find all log files in `/var/log` that were modified in the last 24 hours. Make sure to only include files and not directories. Now extend the command to perform a long listing human readable `ls` for each file.*
 
+```bash
+matias@matias-VirtualBox:~$ find /var/log -type f -mtime -1 2>/dev/null
+/var/log/kern.log
+/var/log/boot.log.1
+/var/log/boot.log
+/var/log/wtmp
+/var/log/faillog
+/var/log/dmesg
+/var/log/kern.log.1
+/var/log/dmesg.1.gz
+/var/log/dpkg.log
+/var/log/cups/access_log.1
+/var/log/cups/access_log
+/var/log/syslog.2.gz
+/var/log/dmesg.0
+/var/log/gpu-manager.log
+/var/log/apt/eipp.log.xz
+/var/log/apt/history.log
+/var/log/apt/term.log
+/var/log/auth.log
+/var/log/lastlog
+/var/log/unattended-upgrades/unattended-upgrades-dpkg.log
+/var/log/unattended-upgrades/unattended-upgrades.log
+/var/log/syslog
+/var/log/syslog.1
+/var/log/auth.log.1
+/var/log/journal/efac3a405b2b4b1abf9825ba56c34a81/system.journal
+/var/log/journal/efac3a405b2b4b1abf9825ba56c34a81/user-1000.journal
+/var/log/journal/efac3a405b2b4b1abf9825ba56c34a81/system@0005d1d638088a20-c8be9b3afea1f8a1.journal~
+/var/log/apport.log
+/var/log/dmesg.2.gz
+/var/log/ubuntu-advantage-timer.log
+/var/log/boot.log.2
+
+----------------------------------------------------------------
+
+matias@matias-VirtualBox:~$ find /var/log -type f -mtime -1  -exec ls -lh '{}' \; 2>/dev/null
+-rw-r----- 1 syslog adm 58K Nov 28 10:48 /var/log/kern.log
+-rw------- 1 root root 18K Nov 28 10:43 /var/log/boot.log.1
+-rw------- 1 root root 11K Nov 28 10:47 /var/log/boot.log
+-rw-rw-r-- 1 root utmp 15K Nov 28 10:48 /var/log/wtmp
+-rw-r--r-- 1 root root 32K Nov 27 12:05 /var/log/faillog
+-rw-r--r-- 1 root adm 45K Nov 28 10:48 /var/log/dmesg
+-rw-r----- 1 syslog adm 181K Nov 28 10:43 /var/log/kern.log.1
+-rw-r--r-- 1 root adm 13K Nov 27 12:23 /var/log/dmesg.1.gz
+-rw-r--r-- 1 root root 1,2M Nov 27 12:12 /var/log/dpkg.log
+-rw-r----- 1 root adm 2,1K Nov 27 12:41 /var/log/cups/access_log.1
+-rw-r----- 1 root adm 784 Nov 28 10:48 /var/log/cups/access_log
+-rw-r----- 1 syslog adm 52K Nov 27 12:04 /var/log/syslog.2.gz
+-rw-r--r-- 1 root adm 43K Nov 28 10:43 /var/log/dmesg.0
+-rw-r--r-- 1 root root 1,3K Nov 28 10:47 /var/log/gpu-manager.log
+-rw-r--r-- 1 root root 59K Nov 27 12:12 /var/log/apt/eipp.log.xz
+-rw-r--r-- 1 root root 128K Nov 27 12:12 /var/log/apt/history.log
+-rw-r----- 1 root adm 119K Nov 27 12:12 /var/log/apt/term.log
+-rw-r----- 1 syslog adm 3,8K Nov 28 10:57 /var/log/auth.log
+-rw-rw-r-- 1 root utmp 286K Nov 27 12:05 /var/log/lastlog
+-rw-r--r-- 1 root adm 37K Nov 27 12:12 /var/log/unattended-upgrades/unattended-upgrades-dpkg.log
+-rw-r--r-- 1 root root 2,7K Nov 27 12:12 /var/log/unattended-upgrades/unattended-upgrades.log
+-rw-r----- 1 syslog adm 296K Nov 28 11:03 /var/log/syslog
+-rw-r----- 1 syslog adm 506K Nov 28 10:43 /var/log/syslog.1
+-rw-r----- 1 syslog adm 17K Nov 28 10:43 /var/log/auth.log.1
+-rw-r-----+ 1 root systemd-journal 8,0M Nov 28 11:03 /var/log/journal/efac3a405b2b4b1abf9825ba56c34a81/system.journal
+-rw-r-----+ 1 root systemd-journal 16M Nov 28 11:02 /var/log/journal/efac3a405b2b4b1abf9825ba56c34a81/user-1000.journal
+-rw-r-----+ 1 root systemd-journal 16M Nov 28 10:47 /var/log/journal/efac3a405b2b4b1abf9825ba56c34a81/system@0005d1d638088a20-c8be9b3afea1f8a1.journal~
+-rw-r----- 1 root adm 0 Nov 27 12:04 /var/log/apport.log
+-rw-r--r-- 1 root adm 13K Nov 27 12:04 /var/log/dmesg.2.gz
+-rw------- 1 root root 314 Nov 27 12:08 /var/log/ubuntu-advantage-timer.log
+-rw------- 1 root root 8,8K Nov 27 12:04 /var/log/boot.log.2
+```
 #### ❌ Steal All Logs
 
 *Create a directory `logs` in `/tmp` and copy all `*.log` files you can find on the system to that location.*
