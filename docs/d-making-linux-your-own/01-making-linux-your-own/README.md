@@ -414,21 +414,89 @@ Try to solve the challenges without using google. Better to use the man-pages to
 
 Mark challenges using a ✅ once they are finished.
 
-### ❌ Dotfiles
+### ✅ Dotfiles
 
 *Setup your own dotfiles. Make the repo public.*
 
-### ❌ Installation Script
+https://github.com/MatiasVereecke/dotfiles
+
+### ✅ Installation Script
 
 *Create an installation script for the tools and libraries you use most. Add the script to your dotfiles.*
+```bash
+#!/usr/bin/env bash
 
-### ❌ neofetch
+function pause() {
+   read -p "$* [ENTER TO CONTINUE]"
+}
+
+pause "Ready to install some tools, libraries, ... for a development machine ?"
+
+# Just add the commands below to start installing tools, dependencies, ...
+sudo apt update
+sudo apt install git -y
+sudo apt install snapd -y
+sudo apt install curl -y
+sudo snap install node --classic --channel=16
+sudo apt install build-essential -y
+
+# The end
+pause "All done - best to reboot after rest is done"
+```
+
+### ✅ neofetch
 
 *Add neofetch to your install script.*
+```bash
+#!/usr/bin/env bash
 
-### ❌ @vue/cli
+function pause() {
+   read -p "$* [ENTER TO CONTINUE]"
+}
+
+pause "Ready to install some tools, libraries, ... for a development machine ?"
+
+# Just add the commands below to start installing tools, dependencies, ...
+sudo apt update
+sudo apt install git -y
+sudo apt install snapd -y
+sudo apt install curl -y
+sudo snap install node --classic --channel=16
+sudo apt install build-essential -y
+sudo apt install neofetch -y
+
+# The end
+pause "All done - best to reboot after rest is done"
+```
+
+### ✅ @vue/cli
 
 *Add @vue/cli as a global install to your script.*
+
+
+```bash
+#!/usr/bin/env bash
+
+function pause() {
+   read -p "$* [ENTER TO CONTINUE]"
+}
+
+pause "Ready to install some tools, libraries, ... for a development machine ?"
+
+# Just add the commands below to start installing tools, dependencies, ...
+sudo apt update
+sudo apt install git -y
+sudo apt install snapd -y
+sudo apt install curl -y
+sudo snap install node --classic --channel=16
+sudo apt install build-essential -y
+sudo apt install neofetch -y
+npm install -g @vue/cli
+
+# The end
+pause "All done - best to reboot after rest is done"
+
+```
 
 ### ❌ Conda
 
@@ -452,3 +520,7 @@ sudo mv gcc-arm-embedded /opt
 ### ❌ Alias for mbed
  
 *Create an alias `mbedc` that compiles an mbed project, flashes the target and starts up the serial terminal at a baudrate of 115200.*
+
+```bash
+sudo apt install screen -y
+```
