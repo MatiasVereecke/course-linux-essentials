@@ -57,16 +57,16 @@ module.exports = {
           '/d-making-linux-your-own/01-making-linux-your-own/',
         ]
       },
-      // {
-      //   title: 'Command Line Hacking',   // required
-      //   path: '/e-command-line-hacking/',      // optional, which should be a absolute path.
-      //   collapsable: false, // optional, defaults to true
-      //   sidebarDepth: 1,    // optional, defaults to 1
-      //   children: [
-      //     // TODO: '/e-command-line-hacking/01-chaining-and-redirection/',
-      //     // '/11-text-manipulation/',
-      //   ]
-      // },
+      {
+        title: 'Command Line Hacking',   // required
+        path: '/e-command-line-hacking/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/e-command-line-hacking/01-chaining-and-redirection/',
+          // '/11-text-manipulation/',
+        ]
+      },
       {
         title: 'Servers and Services',   // required
         path: '/f-services/',      // optional, which should be a absolute path.
@@ -85,7 +85,7 @@ module.exports = {
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
           '/g-scripting/01-basic-shell-scripting/',
-      //     // TODO: '/g-scripting/02-cron-jobs/',
+          '/g-scripting/02-cron-jobs/',
       //     // TODO: '/g-scripting/03-systemd/',
         ]
       },
@@ -131,6 +131,7 @@ module.exports = {
         children: [
           ['http://bashrcgenerator.com', '.bashrc PS1 generator'],
           ['https://explainshell.com', 'explainshell.com'],
+          ['https://crontab.guru/', 'crontab guru'],
         ]
       },
     ],
