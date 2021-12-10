@@ -76,6 +76,7 @@ network={
     psk="YOURPASSWORD"
     scan_ssid=1
 }
+sudo wpa_cli -i wlan0 reconfigure
 ```
 
 ## UFW Firewall
@@ -104,7 +105,10 @@ sudo adduser pi docker
 sudo systemctl enable docker
 sudo systemctl start docker
 ```
+## Cron POST
+```bash
 
+```
 
 ## Creating dirs and files  
 ### Setting up permissions and ownership
@@ -128,7 +132,7 @@ git clone (use the http if your devices key has not been added to github.com)
 sudo apt install -package-
 ```
 
-### backups
+### Backups
 
 use something simialar to this script
 
@@ -136,4 +140,9 @@ use something simialar to this script
 #!/usr/bin/env bash
 now=$(date '+%F_%H'h'-%M'm'-%S's'')
 tar -czvf "backup${now}.tar.gz" $HOME/Oef
+```
+
+### Cron backups
+```bash
+crontab -e 0 0 */1 * * tar -czvf "/tmp/home-backup.tar.gz" /home/matias
 ```
