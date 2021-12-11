@@ -492,7 +492,7 @@ pause "All done - Reboot device"
 
 ```
 
-### ❌ Conda
+### ✅ Conda
 
 *Add conda and mbed to your installation script. Setup an mbed environment from the installation script.*
 
@@ -514,7 +514,7 @@ mbed config -G GCC_ARM_PATH /opt/gcc-arm-embedded/bin
 
 *Make sure to add the `~/.mbed/.mbed` config file to your dotfiles.*
 
-### ❌ Alias for mbed
+### ✅ Alias for mbed
  
 *Create an alias `mbedc` that compiles an mbed project, flashes the target and starts up the serial terminal at a baudrate of 115200.*
 
