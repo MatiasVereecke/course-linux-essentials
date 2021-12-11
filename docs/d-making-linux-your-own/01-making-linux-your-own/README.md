@@ -430,8 +430,6 @@ function pause() {
    read -p "$* [ENTER TO CONTINUE]"
 }
 
-pause "Ready to install some tools, libraries, ... for a development machine ?"
-
 # Just add the commands below to start installing tools, dependencies, ...
 sudo apt update
 sudo apt install git -y
@@ -440,8 +438,7 @@ sudo apt install curl -y
 sudo snap install node --classic --channel=16
 sudo apt install build-essential -y
 
-# The end
-pause "All done - best to reboot after rest is done"
+pause "All done - Reboot device"
 ```
 
 ### ✅ neofetch
@@ -454,7 +451,7 @@ function pause() {
    read -p "$* [ENTER TO CONTINUE]"
 }
 
-pause "Ready to install some tools, libraries, ... for a development machine ?"
+
 
 # Just add the commands below to start installing tools, dependencies, ...
 sudo apt update
@@ -465,8 +462,7 @@ sudo snap install node --classic --channel=16
 sudo apt install build-essential -y
 sudo apt install neofetch -y
 
-# The end
-pause "All done - best to reboot after rest is done"
+pause "All done - Reboot device"
 ```
 
 ### ✅ @vue/cli
@@ -481,9 +477,8 @@ function pause() {
    read -p "$* [ENTER TO CONTINUE]"
 }
 
-pause "Ready to install some tools, libraries, ... for a development machine ?"
 
-# Just add the commands below to start installing tools, dependencies, ...
+.
 sudo apt update
 sudo apt install git -y
 sudo apt install snapd -y
@@ -493,8 +488,7 @@ sudo apt install build-essential -y
 sudo apt install neofetch -y
 npm install -g @vue/cli
 
-# The end
-pause "All done - best to reboot after rest is done"
+pause "All done - Reboot device"
 
 ```
 
@@ -511,6 +505,9 @@ tar -xf gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2
 mv gcc-arm-none-eabi-10-2020-q4-major gnu-arm-embedded
 rm gcc-arm-none-eabi-10-2020-q4-major-x86_64-linux.tar.bz2
 sudo mv gcc-arm-embedded /opt
+mbed config -G GCC_ARM_PATH /opt/gcc-arm-embedded/bin
+
+
 ```
 
 *You can set the path of the compiler using the command `mbed config -G GCC_ARM_PATH /opt/gnu-arm-embedded/bin`*
