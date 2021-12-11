@@ -191,6 +191,18 @@ Mark challenges using a ✅ once they are finished.
 
 *Set the default rule to allow outgoing and deny incoming connections.*
 
+```bash
+sudo apt install ufw
+sudo systemctl enable ufw
+sudo ufw allow ssh
+sudo systemctl start ufw
+```
+
 ### ❌ Setup Apache
 
 *Install and enable the apache webserver. Make sure to enable http connections to the Raspberry Pi. Test it out by surfing to your Raspberry Pi using a webbrowser.*
+```bash
+sudo apt install apache2
+sudo ufw allow http
+```
+<img src="./img/apache2.png" width= "50%">
