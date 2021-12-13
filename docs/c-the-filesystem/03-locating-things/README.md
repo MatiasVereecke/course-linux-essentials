@@ -359,9 +359,22 @@ find /etc -type f -name "*system*.conf" 2>/dev/null
 /etc/systemd/system.conf
 ```
 
-#### ❌ User Readable Files
+#### ✅ User Readable Files
 
 *What option can we use on `find` to make sure the current user can read the file? Don't use the `-perm` option. There is a better option. Give a nice example.*
+
+We can use the option -readable to list files.
+
+```bash
+ ~
+> find /var/log -type f -name "*.log" -readable 2>/dev/null -exec ls -lh {} \;
+-rw-r--r-- 1 root root 18K Dec 13 18:04 /var/log/alternatives.log
+-rw-r--r-- 1 root root 17K Dec 13 18:11 /var/log/apt/history.log
+-rw-r----- 1 root adm 80K Dec 13 18:11 /var/log/apt/term.log
+-rw-r----- 1 syslog adm 4.9K Nov 11 15:06 /var/log/auth.log
+-rw-r--r-- 1 root root 173K Dec 13 18:11 /var/log/dpkg.log
+```
+
 
 #### ✅ Altered Log Files
 
@@ -436,10 +449,32 @@ matias@matias-VirtualBox:~$ find /var/log -type f -mtime -1  -exec ls -lh '{}' \
 -rw------- 1 root root 314 Nov 27 12:08 /var/log/ubuntu-advantage-timer.log
 -rw------- 1 root root 8,8K Nov 27 12:04 /var/log/boot.log.2
 ```
-#### ❌ Steal All Logs
+#### ✅ Steal All Logs
 
 *Create a directory `logs` in `/tmp` and copy all `*.log` files you can find on the system to that location.*
 
-#### ❌ Markdown README files
+```bash
+find / -type f -name "*.log" -exec cp '{}' /tmp/logs ; 2>/dev/null
+```
+
+#### ✅ Markdown README files
 
 *Find all `README.md` files on your system. Can you make it so the case of the filename does not matter? In other words, you should also be able to find `readme.md`, `Readme.md`, `readme.MD`, ...*
+
+
+```bash
+> find / -type f -mount -iname "readme.md" 2>/dev/null
+/home/matias/.oh-my-zsh/.github/actions/spelling/README.md
+/home/matias/.oh-my-zsh/custom/themes/powerlevel10k/gitstatus/README.md
+/home/matias/.oh-my-zsh/custom/themes/powerlevel10k/README.md
+/home/matias/.oh-my-zsh/plugins/adb/README.md
+/home/matias/.oh-my-zsh/plugins/ag/README.md
+/home/matias/.oh-my-zsh/plugins/alias-finder/README.md
+/home/matias/.oh-my-zsh/plugins/aliases/README.md
+/home/matias/.oh-my-zsh/plugins/ansible/README.md
+/home/matias/.oh-my-zsh/plugins/ant/README.md
+/home/matias/.oh-my-zsh/plugins/apache2-macports/README.md
+/home/matias/.oh-my-zsh/plugins/arcanist/README.md
+...
+
+```
