@@ -183,7 +183,7 @@ Try to solve the challenges without using google. Better to use the man-pages to
 
 Mark challenges using a ✅ once they are finished.
 
-### ❌ Enable Firewall
+### ✅ Enable Firewall
 
 *Install and enable the ufw service on your Raspberry Pi.*
 
@@ -198,7 +198,7 @@ sudo ufw allow ssh
 sudo systemctl start ufw
 ```
 
-### ❌ Setup Apache
+### ✅ Setup Apache
 
 *Install and enable the apache webserver. Make sure to enable http connections to the Raspberry Pi. Test it out by surfing to your Raspberry Pi using a webbrowser.*
 ```bash

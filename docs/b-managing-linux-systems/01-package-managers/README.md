@@ -348,11 +348,31 @@ cowsay grasss
                 ||     ||
 ```
 
-### ❌ Nmap
+### ✅ Nmap
 
 *Install the `nmap` package using `apt`.*
 
 *Port scan the server `sivir.devbit.be`. Make sure you are connected to the `Devbit` network. What services are running on this machine?*
+```bash
+ ~
+> sudo apt install nmap
+```
+
+```bash
+nmap sivir.devbit.be
+```
+
+```bash
+Starting Nmap 7.80 ( https://nmap.org ) at 2021-12-14 12:35 CEST
+Nmap scan report for sivir.devbit.be (172.16.10.5)
+Host is up (0.0071s latency).
+Not shown: 999 closed ports
+PORT   STATE SERVICE
+22/tcp open  ssh
+
+Nmap done: 1 IP address (1 host up) scanned in 0.34 seconds
+```
+
 
 ### ✅ NodeJS
 
@@ -364,6 +384,8 @@ sudo snap install node
 Interacting with snapd is not yet supported on Windows Subsystem for Linux.
 This command has been left available for documentation purposes only.
 
+
+
 ```js
 console.log("Hello World from JavaScript");
 ```
@@ -371,6 +393,13 @@ console.log("Hello World from JavaScript");
 ### ❌ Dhcpdump
 
 *Install the `dhcpdump` and try to capture some DHCP traffic in the network. Work together with another student and try to capture the DHCP request of his/her laptop. Find out what the MAC Address is and check it using the `ip` or `ipconfig` tool.*
+
+```bash
+matias@DESKTOP-GI6F63L:~$ dhcpdump -i wlan0
+dhcpdump: pcap_open_live(): socket for SIOCETHTOOL(ETHTOOL_GET_TS_INFO): Socket type not supported
+
+you cant run it on wsl
+```
 
 ### ✅ MQTT
 
