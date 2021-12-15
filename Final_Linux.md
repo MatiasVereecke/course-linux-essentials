@@ -2,32 +2,46 @@
 
 ## Flashing
 
-Install raspberry pi imager
-Choose os and storage and press write.
+```bash
+Install Rasperry Pi imager
+Download PI lite (0,5GB)
 
-## HEADless system | SSH | ip from MAC-address
-Add a file "ssh" to the boot partition of the card. 
-Connect with ssh using the ip address.
+Press CTRL + Shift + X
+setup what is Preferred
+```
 
-mac-address (ethernet): own mac
-To find out the ip we can use the command tcpdump -vvv -i -interface- | grep -mac- 
+## ## HEADless system | SSH | ip from MAC-address
 
-First start the command
-Than plug the ethernet into the Pi
+```bash
+Add a file "ssh" to the boot partition
+
+Mac eth: e4:5f:01:1d:75:af
+Mac wif: e4:5f:01:1d:75:b1
+
+use the command tcpdump -vvv -i -interface- | grep -mac- 
+to find IP address 
+Do this before plugging the ethernet cable into the pi 
+```
 
 ## Static IP
-
-sudo nano /etc/dhcpcd.conf
-go to interface eth0
-change static ip address to your ip and static routers to the default
-gateway
+```bash
+- sudo nano /etc/dhcpcd.conf
+```
+1. go to interface eth0
+2. change static ip address to your ip and static routers ip.
+3. default gateway
+4. domain-name
 
 
 ## Hostname
-
+```bash
 sudo raspi-config
-network options -> hostname -> enter the hostname -> enter -> finish
-Reboot.
+```
+1. Network
+2. hostname
+3. enter hostname
+4. finish
+5. Reboot
 
 ## Creating accounts
 ```bash
@@ -45,8 +59,9 @@ sudo usermod -aG -group/groups- -user-
 sudo passwd -l -name-
 usermod --expiredate 1 -name-
 ```
-## SSH using keys
 
+## SSH using keys
+```bash 
 get the public key of your device.
 On windows: cd ~/.ssh ==> cat id_rsa.pub
 copy this.
@@ -54,16 +69,18 @@ connect to the pi using ssh ==> create an ssh dir in the home dir
 nano ~/.ssh/authorized_keys ==> paste the key
 sudo chmod -R 600 ~/.ssh
 sudo chmod 700 ~/.ssh
-
+```
 ## Setup Shell
 ```bash
-chsh -s /bin/-shell-
+chsh -s /bin/-(type shell)-
 ```
 
 ## Install ZSH
 ```bash
 sudo apt install zsh
+chsh -s /bin/zsh
 ```
+
 ## Wireless Network
 ```bash
 sudo nano /etc/wpa_supplicant/wpa_supplicant.conf
@@ -79,7 +96,6 @@ network={
 }
 sudo wpa_cli -i wlan0 reconfigure
 ```
-
 ## UFW Firewall
 
 ```bash
@@ -106,6 +122,11 @@ sudo adduser pi docker
 sudo systemctl enable docker
 sudo systemctl start docker
 ```
+
+```bash
+docker run --detach --publish 4000:1880 nodered/node-red
+```
+
 ## Cron POST
 ```bash
 
@@ -113,7 +134,7 @@ sudo systemctl start docker
 
 ## Creating dirs and files  
 ### Setting up permissions and ownership
-
+```bash 
 create file : touch -name-
 create dir : mkdir -name-
 
@@ -121,7 +142,8 @@ ownership file : chown -user- -file-
 ownership dir : chown -R -username- -dir-
 
 permissions file : chmod ugo+rwx -file-
-permissions dir : chmod -R if you want to change the permissions of everything inside of it as well
+permissions dir : chmod -R
+```
 
 ## Cloning GIT
 ```bash
@@ -134,9 +156,6 @@ sudo apt install -package-
 ```
 
 ### Backups
-
-use something simialar to this script
-
 ```bash
 #!/usr/bin/env bash
 now=$(date '+%F_%H'h'-%M'm'-%S's'')
