@@ -47,7 +47,7 @@ usermod --expiredate 1 -name-
 ```
 ## SSH using keys
 
-get the public key of your device (not the pi).
+get the public key of your device.
 On windows: cd ~/.ssh ==> cat id_rsa.pub
 copy this.
 connect to the pi using ssh ==> create an ssh dir in the home dir
