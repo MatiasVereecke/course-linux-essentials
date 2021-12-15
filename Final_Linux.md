@@ -8,7 +8,7 @@ Choose os and storage and press write.
 ## HEADless system | SSH | ip from MAC-address
 Add a file "ssh" to the boot partition of the card. Now we need to connect with ssh using the ip address. We can try using raspberry as the ip but this most likely wont work.
 
-mac-address (ethernet): e4:5f:01:1d:75:af 
+mac-address (ethernet): 
 To find out the ip we can use the command tcpdump -vvv -i -interface- | grep -mac- 
 
 First start the command
