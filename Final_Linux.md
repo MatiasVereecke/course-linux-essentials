@@ -129,7 +129,8 @@ docker run --detach --publish 4000:1880 nodered/node-red
 
 ## Cron POST
 ```bash
-
+crontab -e
+curl -X POST -D "test Message" url
 ```
 
 ## Creating dirs and files  
