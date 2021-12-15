@@ -6,9 +6,10 @@ Install raspberry pi imager
 Choose os and storage and press write.
 
 ## HEADless system | SSH | ip from MAC-address
-Add a file "ssh" to the boot partition of the card. Now we need to connect with ssh using the ip address. We can try using raspberry as the ip but this most likely wont work.
+Add a file "ssh" to the boot partition of the card. 
+Connect with ssh using the ip address.
 
-mac-address (ethernet): 
+mac-address (ethernet): own mac
 To find out the ip we can use the command tcpdump -vvv -i -interface- | grep -mac- 
 
 First start the command
@@ -47,10 +48,10 @@ usermod --expiredate 1 -name-
 ## SSH using keys
 
 get the public key of your device (not the pi).
-On windows: cd ~/.ssh -> cat id_rsa.pub
+On windows: cd ~/.ssh ==> cat id_rsa.pub
 copy this.
-connect to the pi using ssh -> (creat an ssh dir in the home dir) this should already exist.
-nano ~/.ssh/authorized_keys -> paste the key
+connect to the pi using ssh ==> create an ssh dir in the home dir
+nano ~/.ssh/authorized_keys ==> paste the key
 sudo chmod -R 600 ~/.ssh
 sudo chmod 700 ~/.ssh
 
