@@ -122,10 +122,17 @@ sudo adduser pi docker
 sudo systemctl enable docker
 sudo systemctl start docker
 ```
-
+### Commands
 ```bash
+sudo docker run hello-world
+sudo docker stop hello-world
+sudo docker images
+sudo docker ps
 docker run --detach --publish 4000:1880 nodered/node-red
 ```
+docker run --detach --publish 8080:80 _/nginx
+docker run  -d -p 8080:80 s_/nginx
+docker run --my-nginx some-nginx -d -p 8080:80 some-content-nginx
 
 ## Cron POST
 ```bash
@@ -166,4 +173,10 @@ tar -czvf "backup${now}.tar.gz" $HOME/Oef
 ### Cron backups
 ```bash
 crontab -e 0 0 */1 * * tar -czvf "/tmp/home-backup.tar.gz" /home/matias
+```
+
+### MQTT
+```bash
+sudo apt install mosquitto-clients
+mosquitto_pub --topic linux/lab/raspberry -h mqtt.devbit.be -m "Matias Vereecke"
 ```

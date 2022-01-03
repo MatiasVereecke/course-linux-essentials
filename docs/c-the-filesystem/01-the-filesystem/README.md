@@ -720,7 +720,7 @@ The user does not have the needed permissions.
 
 *Now use `sudo` to create the directory. Try creating a file called `README.md` within this `/backups` directory. Can you do it? Why / Why not?*
 
-No the user does not have the permission to create a file in this directory. The user only has the permission to read the directory.
+No you cant do it. The user has no permission to create a file in this directory. The user can only read the directory.
 
 ### ✅ Bash RC
 
@@ -735,11 +735,14 @@ cp .bashrc .bashrc.bak
 *What does the tool `ln` allow you to do? Use it to create such a link in your home directory called `secrets` to the file `/etc/passwd`. Now use the `cat` tool to open the file `secrets`. What do you see? What happened?*
 
 
-ln is used to make a link between files. When using the cat tool, it shows the content of /etc/passwd. The files are pointing to the same file
+- The ln command makes a link between files. 
+- The cat tool is used to show the content of /etc/passwd. The files are pointing to the same file
 
 ### ✅ SD Card
 
 *Plugin an SD Card or a USB stick into you computer. Where can we find the actual block device? Where is the filesystem mounted? What is the difference between these two?*
 
 
-The block device can be found in the dev directory. The filesystem is mounted in the media directory. As a block device the data is stored in data blocks, while in the filesystem the data is organized as files with a hierarchy.
+- The block device can be found in the dev directory.
+- The filesystem is mounted in the media directory. 
+- As a block device the data is stored in data blocks, while in the filesystem the data is organized as files with a hierarchy.
